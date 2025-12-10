@@ -1,0 +1,5 @@
+# .gitattributes file
+
+* text=auto
+*.ipynb filter=nbstripout
+*.ipynb diff=ipynb

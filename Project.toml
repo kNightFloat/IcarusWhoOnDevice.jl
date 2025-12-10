@@ -1,0 +1,18 @@
+name = "IcarusWhoOnDevice"
+uuid = "213cca7d-47f8-4d50-83a7-e884988b3c94"
+authors = ["ChenyuBao <chenyu.bao@outlook.com>"]
+version = "0.1.0"
+
+[deps]
+EtherArrays = "73c2380e-57df-4bce-8a8d-9b9b8436c78c"
+EtherMaths = "e9131f1e-6ff8-4b70-992e-15574141dedc"
+KernelAbstractions = "63c18a36-062a-441e-b654-da1e3ab1ce7c"
+StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
+oneAPI = "8f75cd03-7ff8-4ecb-9b8f-daf728133b1b"
+
+[compat]
+EtherArrays = "0.1.0"
+EtherMaths = "0.1.2"
+KernelAbstractions = ">=0.9.39"
+StaticArrays = ">=1.9.15"
+oneAPI = "2.0.1"
