@@ -13,11 +13,17 @@ using OrderedCollections
 const kDeclaration = "IcarusWhoOnDevice.jl is a repo to find who can run on device."
 const kVSCSettingsPath = joinpath(".vscode", "settings.json")
 
-kAutoHeader::OrderedDict{String, Any} = OrderedDict(
-    "format" => OrderedDict("startWith" => "#=", "middleWith" => "", "endWith" => "=#", "headerPrefix" => "@"),
+kAutoHeader::OrderedDict{String,Any} = OrderedDict(
+    "format" => OrderedDict(
+        "startWith" => "#=",
+        "middleWith" => "",
+        "endWith" => "=#",
+        "headerPrefix" => "@",
+    ),
     "header" => OrderedDict(
         "author" => "ChenyuBao <chenyu.bao@outlook.com>",
-        "date" => OrderedDict("type" => "createTime", "format" => "YYYY-MM-DD HH:mm:ss"),
+        "date" =>
+            OrderedDict("type" => "createTime", "format" => "YYYY-MM-DD HH:mm:ss"),
         "license" => "MIT",
         "language" => "Julia",
         "declaration" => kDeclaration,
@@ -26,7 +32,7 @@ kAutoHeader::OrderedDict{String, Any} = OrderedDict(
 )
 
 function main()::Nothing
-    settings = OrderedDict{String, Any}()
+    settings = OrderedDict{String,Any}()
     settings["autoHeader"] = kAutoHeader
     isdir(".vscode") || mkpath(".vscode")
     open(kVSCSettingsPath, "w") do io

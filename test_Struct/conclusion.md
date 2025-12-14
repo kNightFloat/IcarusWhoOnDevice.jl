@@ -31,6 +31,31 @@ end
 
 This can work!
 
+```julia
+cpu_struct = [
+    Par{2, Tf}(
+        Scalar{Tf}(1.0),
+        Scalar{Tf}(1.0),
+        SVector{2, Tf}(1.0, 2.0),
+        SVector{2, Tf}(3.0, 4.0),
+        SVector{2, Tf}(5.0, 6.0),
+        SMatrix{2, 2, Tf}(7.0, 8.0, 9.0, 10.0)
+    )
+    for _ in 1:3
+]
+
+gpu_struct = oneAPI.oneArray(cpu_struct)
+
+@kernel function ker!(gpu_s)
+    idx = @index(Global)
+    gpu_s[idx].pos += gpu_s[idx].vel
+end
+
+ker!(oneAPIBackend(), 3)(gpu_struct, ndrange=(3,))
+```
+
+Direct wrapper of `oneArray{struct}` can't work in kernel programming.
+
 ## Reflection
 
 Does such struct is a must?...
